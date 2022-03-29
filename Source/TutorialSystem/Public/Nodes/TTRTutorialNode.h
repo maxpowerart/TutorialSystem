@@ -50,6 +50,13 @@ public:
 	/**End actions*/
 
 	/**Info*/
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Config")
+	FText DefaultTitle = FText::FromString("Task Title");
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Config")
+	FText DefaultDescription = FText::FromString("Task Description");
+	
 	UFUNCTION(BlueprintNativeEvent, BlueprintPure, Category = "Info")
 	FText GetTaskName() const;
 	FText GetTaskName_Implementation() const;

@@ -96,12 +96,12 @@ void UTTRTutorialNode::InterruptTask_Implementation()
 
 FText UTTRTutorialNode::GetTaskName_Implementation() const
 {
-	return FText::FromString(".ph TaskName");
+	return DefaultTitle;
 }
 
 FText UTTRTutorialNode::GetTaskDescription_Implementation() const
 {
-	return FText::FromString(".ph TaskDescription");
+	return DefaultDescription;
 }
 
 FText UTTRTutorialNode::GetTaskProgress_Implementation() const
