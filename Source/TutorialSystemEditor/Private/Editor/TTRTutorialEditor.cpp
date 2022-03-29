@@ -13,6 +13,7 @@
 #include "Kismet2/KismetEditorUtilities.h"
 #include "TutorialGraph/TTRTutorialGraph_AssetGraphSchema.h"
 #include "TutorialGraph/TTRTutorialGraph_EdGraph.h"
+#include "TutorialGraph/Nodes/TTRTutorialGraphNode_Root.h"
 #include "TutorialGraph/Nodes/TTRTutorialGraphNode_SimpleTask.h"
 #include "Windows/WindowsPlatformApplicationMisc.h"
 #include "WorkflowOrientedApp/ApplicationMode.h"
@@ -164,6 +165,7 @@ void FTTRTutorialEditor::OnSelectedNodesChanged(const TSet<UObject*>& NewSelecti
 	}
 	else
 	{
+		if(Selection.Num() == 1 && Cast<UTTRTutorialGraphNode_Root>(Selection[0])) Selection.Empty();
 		TutorialDetailsView->SetObjects(Selection);
 	}
 }
@@ -234,6 +236,7 @@ void FTTRTutorialEditor::CreateInternalWidgets()
 	FDetailsViewArgs DetailsViewArgs(false, false, true, FDetailsViewArgs::HideNameArea, false);
 	DetailsViewArgs.NotifyHook = this;
 	DetailsViewArgs.DefaultsOnlyVisibility = EEditDefaultsOnlyNodeVisibility::Hide;
+	DetailsViewArgs.bAllowMultipleTopLevelObjects = false;
 	TutorialDetailsView = PropertyEditorModule.CreateDetailView(DetailsViewArgs);
 	TutorialDetailsView->SetObject(Tutorial);
 }

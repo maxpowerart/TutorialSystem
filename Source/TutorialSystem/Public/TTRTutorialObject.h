@@ -26,9 +26,9 @@ public:
 	virtual UWorld* GetWorld() const override;
 	
 	/**Node references*/
-	UPROPERTY(Instanced, VisibleAnywhere, Category = "Nodes")
+	UPROPERTY(VisibleAnywhere, Category = "DebugProperties")
 	UTTRTutorialNode* RootNode;
-	UPROPERTY(Instanced, VisibleAnywhere, Category = "Nodes")
+	UPROPERTY(VisibleAnywhere, Category = "DebugProperties")
 	TArray<UTTRTutorialNode*> Nodes;
 
 	/**Current task's index*/

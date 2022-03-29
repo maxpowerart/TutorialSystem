@@ -21,13 +21,13 @@ public:
 	
 	/**Begin tutorial node implementation*/
 	
-	UPROPERTY(VisibleDefaultsOnly, Category = "GenericGraphNode")
+	UPROPERTY(VisibleDefaultsOnly, Category = "DebugProperties")
 	class UTTRTutorialObject* TutorialObject;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GenericGraphNode")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "DebugProperties")
 	UTTRTutorialNode* ParentNode;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "GenericGraphNode")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "DebugProperties")
 	UTTRTutorialNode* ChildNode;
 
 	/**Actions*/
@@ -96,9 +96,9 @@ public:
 	FTutorialNodePropertyChanged OnTutorialNodePropertyChanged;
 		
 	/**GUID methods*/
-	UFUNCTION(BlueprintPure, Category = "Dialogue|Node")
+	UFUNCTION(BlueprintPure, Category = "Tutorial|Node")
 	FGuid GetGUID() const { return NodeGUID; }
-	UFUNCTION(BlueprintPure, Category = "Dialogue|Node")
+	UFUNCTION(BlueprintPure, Category = "Tutorial|Node")
 	bool HasGUID() const { return NodeGUID.IsValid(); }
 	void RegenerateGUID()
 	{
@@ -110,6 +110,6 @@ public:
 	static FName GetMemberNameGUID() { return GET_MEMBER_NAME_CHECKED(UTTRTutorialNode, NodeGUID); }
 
 protected:	
-	UPROPERTY(VisibleAnywhere, Category = "Tutorial|Node", AdvancedDisplay)
+	UPROPERTY()
 	FGuid NodeGUID;
 };
